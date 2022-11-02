@@ -7,6 +7,7 @@
     </head>
 
     <body>
+      
 
         <div id="app">
             <label for="r1">修改颜色</label><input type="checkbox" v-model="use" id="r1">
@@ -14,6 +15,14 @@
             <div v-bind:class="{'class1': use}">
               v-bind:class 指令
             </div>
+
+
+            <div>
+              <video width="320" height="240" controls>
+                <source src="http://localhost:8080/video/play?fileName=11" type="video/mp4">
+            </video>
+            </div>
+
           </div>
               
           <script>
@@ -27,5 +36,10 @@
            
           Vue.createApp(app).mount('#app')
           </script>
+
+
+
+
+
     </body>
 </html>
