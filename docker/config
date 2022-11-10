@@ -1,0 +1,27 @@
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "experimental": false,
+  "features": {
+    "buildkit": true
+  },
+  "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn",
+    "https://registry.docker-cn.com",
+    "http://hub-mirror.c.163.com",
+    "https://mirror.ccs.tencentyun.com"
+  ]
+}
+
+-------------
+
+docker pull postgres:15
+docker run --name pgsql -e POSTGRES_PASSWORD=123456 -d postgres:15
+
+
+docker pull redis:7
+docker run --name redis-7 -d redis:7
