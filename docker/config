@@ -20,8 +20,8 @@
 -------------
 
 docker pull postgres:15
-docker run --name pgsql -e POSTGRES_PASSWORD=123456 -d postgres:15
+docker run --name pgsql -p 5432:5432 -e POSTGRES_PASSWORD=123456 -d postgres:15
 
 
 docker pull redis:7
-docker run --name redis-7 -d redis:7
+docker run --name redis-7  -p 6379:6379 -d redis:7
