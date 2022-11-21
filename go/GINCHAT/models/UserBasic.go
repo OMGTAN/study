@@ -2,12 +2,10 @@ package models
 
 import (
 	"gorm.io/gorm"
-) 
+)
 
-
-type UserBasic struct{
+type UserBasic struct {
 	gorm.Model
-	Name string
+	Name     string
 	Password string
 }
-
