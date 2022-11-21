@@ -1,0 +1,13 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:cjs": "node src/cjs/index.cjs",
+    "dev:esm": "node src/esm/index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
