@@ -5,13 +5,16 @@ services:
 
   postgres:
     image: postgres:15
+    container_name: pg15
     # restart: always
     environment:
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: ginchat
-      PGDATA: /var/lib/postgresql/data/pgdata //数据存储文件夹
+      PGDATA: /var/lib/postgresql/data/pgdata #数据存储文件夹
     volumes:
-      - D:/Job/docker/pg/data:/var/lib/postgresql/data/ //将数据映射到对应的路径
+      - D:/Job/docker/pg/data:/var/lib/postgresql/data/  #将数据映射到对应的路径
+      # - D:/Job/docker/pg/etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
+      # - D:/Job/docker/pg/etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
     ports:
       - 5432:5432
     
