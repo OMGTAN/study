@@ -10,6 +10,14 @@ function entryFile(url) {
     const file = isESM(url) ? `../src/esm${url}` : './index.html'
     return resolve(__dirname, file)
   }
+
+  /**
+ * 获取 MIME Type 信息
+ * @tips `.mjs` 和 `.js` 一样，都使用 JavaScript 的 MIME Type
+ */
+function mimeType(url) {
+    return isESM(url) ? 'application/javascript' : 'text/html'
+  }
   
   /**
    * 创建 HTTP 服务
