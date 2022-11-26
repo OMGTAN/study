@@ -1,0 +1,2 @@
+pg:
+  url: host=localhost user=postgres password=123456 dbname=ginchat port=5432 sslmode=disable TimeZone=Asia/Shanghai
