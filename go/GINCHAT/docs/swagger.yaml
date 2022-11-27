@@ -1,0 +1,84 @@
+definitions:
+  models.UserBasic:
+    properties:
+      name:
+        example: name1
+        type: string
+      password:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /createUser:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 入参
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserBasic'
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      tags:
+      - 用户管理
+  /deleteUser:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 入参
+        in: query
+        name: id
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      tags:
+      - 用户管理
+  /index:
+    get:
+      responses: {}
+  /listUsers:
+    get:
+      parameters:
+      - description: 入参
+        in: query
+        name: id
+        type: integer
+      responses:
+        "200":
+          description: OK
+      tags:
+      - 用户管理
+  /updateUser:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 入参
+        in: query
+        name: id
+        type: integer
+      - description: 入参
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserBasic'
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      tags:
+      - 用户管理
+swagger: "2.0"
