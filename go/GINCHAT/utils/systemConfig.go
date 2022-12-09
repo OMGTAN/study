@@ -48,3 +48,7 @@ func InitConfig() {
 	dsn := viper.GetString("pg.url")
 	fmt.Println(dsn)
 }
+
+func iniRedis() {
+
+}
