@@ -5,8 +5,10 @@ import (
 	"ginchat/models"
 	"ginchat/utils"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 )
 
 func CreateDB(c *gin.Context) {
@@ -74,4 +76,38 @@ func ListUsers(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": data,
 	})
+}
+
+var upgrade = websocket.Upgrader{
+	CheckOrigin: func(r *http.Request) bool {
+		return true
+	},
+}
+
+func SendMsg(c *gin.Context) {
+	ws, err := upgrade.Upgrade(c.Writer, c.Request, nil)
+	if nil != err {
+		fmt.Println("sendMsg error: ", err)
+	}
+	defer func(ws *websocket.Conn) {
+		err = ws.Close()
+		if nil != err {
+			fmt.Println("ws close error: ", err)
+		}
+	}(ws)
+
+	MsgHandler(ws, c)
+}
+
+func MsgHandler(ws *websocket.Conn, c *gin.Context) {
+	msg, err := utils.Subscribe(c, utils.PublishKey)
+	if nil != err {
+		fmt.Println(" MsgHandler error: ", err)
+	}
+	tm := time.Now().Format("2022-12-12 12:12:12")
+	m := fmt.Sprintf("[ws][%s]:%s", tm, msg)
+	err = ws.WriteMessage(1, []byte(m))
+	if nil != err {
+		fmt.Println(" MsgHandler error: ", err)
+	}
 }
