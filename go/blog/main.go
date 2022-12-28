@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"log"
 	"net/http"
 	"os"
@@ -13,16 +12,6 @@ type response struct {
 	Desc  string `json:"desc"`
 }
 
-func handleIndex(w http.ResponseWriter, request *http.Request) {
-	res := &response{
-		Title: "blog",
-		Desc:  "desc",
-	}
-	jsonstr, _ := json.Marshal(res)
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(jsonstr)
-}
-
 func handleIndexHtml(w http.ResponseWriter, request *http.Request) {
 	res := &response{
 		Title: "你好 blog",
@@ -30,7 +19,15 @@ func handleIndexHtml(w http.ResponseWriter, request *http.Request) {
 	}
 	t := template.New("index.html")
 	path, _ := os.Getwd()
-	t.ParseFiles(path + "/pc/index.html")
+	log.Println(path)
+	index := path + "/template/index.html"
+	home := path + "/template/home.html"
+	header := path + "/template/layout/header.html"
+	footer := path + "/template/layout/footer.html"
+	pagination := path + "/template/layout/pagination.html"
+	personal := path + "/template/layout/personal.html"
+	postList := path + "/template/layout/post-list.html"
+	t.ParseFiles(index, home, header, footer, pagination, personal, postList)
 	t.Execute(w, res)
 }
 
@@ -40,8 +37,7 @@ func main() {
 	}
 
 	//处理'/'请求
-	http.HandleFunc("/", handleIndex)
-	http.HandleFunc("/index.html", handleIndexHtml)
+	http.HandleFunc("/", handleIndexHtml)
 
 	err := server.ListenAndServe()
 	if err != nil {
