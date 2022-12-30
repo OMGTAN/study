@@ -5,6 +5,7 @@ import (
 	"blog/models"
 	"html/template"
 	"log"
+	"sync"
 	"time"
 )
 
@@ -59,5 +60,11 @@ func LoadTemplate() {
 }
 
 func init() {
-	LoadTemplate()
+	w := sync.WaitGroup{}
+	w.Add(1)
+	go func() {
+		LoadTemplate()
+		w.Done()
+	}()
+	w.Wait()
 }
