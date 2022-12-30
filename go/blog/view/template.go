@@ -20,13 +20,17 @@ func date(format string) string {
 	return time.Now().Format(format)
 }
 
+func DateDay(date time.Time) string {
+	return date.Format("2006-01-02 15:04:05")
+}
+
 func LoadTemplate() {
 	path := config.Conf.System.CurrentDir
 
 	for _, value := range models.TemplateArr {
 
-		t := template.New(value)
-		t.Funcs(template.FuncMap{"isODD": isODD, "getNextName": getNextName, "date": date})
+		t := template.New(value + ".html")
+		t.Funcs(template.FuncMap{"isODD": isODD, "getNextName": getNextName, "date": date, "dateDay": DateDay})
 		index := path + "/template/" + value + ".html"
 		home := path + "/template/home.html"
 		header := path + "/template/layout/header.html"
@@ -54,6 +58,6 @@ func LoadTemplate() {
 	models.Pages.Writing = models.TempList[7]
 }
 
-func Init() {
+func init() {
 	LoadTemplate()
 }

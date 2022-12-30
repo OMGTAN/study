@@ -2,8 +2,8 @@ package models
 
 import (
 	"html/template"
-	"io"
 	"log"
+	"net/http"
 )
 
 var TemplateArr []string = []string{"category", "custom", "detail", "home", "index", "login", "pigeonhole", "writing"}
@@ -27,7 +27,7 @@ type TemplateAll struct {
 
 var Pages = &TemplateAll{}
 
-func (t *TemplateModel) WriteData(w io.Writer, data interface{}) {
+func (t *TemplateModel) WriteData(w http.ResponseWriter, data interface{}) {
 	err := t.Execute(w, data)
 	if err != nil {
 		log.Panicln("页面填充数据失败：", err)
