@@ -2,21 +2,19 @@ package dao
 
 import (
 	"blog/common"
-	"fmt"
+	"blog/models"
 )
 
-func GetAllCategory() {
-	rows, err := dao.DB.Query("SELECT * FROM userinfo")
-	checkErr(err)
+func GetAllCategory() []models.Category {
+	rows, err := DB.Query("select * from blog_category")
+	common.PrintErr(err)
 
-	println("-----------")
+	var categorys []models.Category
 	for rows.Next() {
-		var uid int
-		var username string
-		var department string
-		var created string
-		err = rows.Scan(&uid, &username, &department, &created)
+		var category models.Category
+		err = rows.Scan(&category.Cid, &category.Name, &category.CreateAt, &category.UpdateAt)
 		common.PrintErr(err)
-		fmt.Println("uid = ", uid, "\nname = ", username, "\ndep = ", department, "\ncreated = ", created, "\n-----------")
+		categorys = append(categorys, category)
 	}
+	return categorys
 }
