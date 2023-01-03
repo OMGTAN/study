@@ -90,7 +90,7 @@ CREATE TABLE `blog_user`  (
 -- ----------------------------
 -- Records of blog_user
 -- ----------------------------
-INSERT INTO `blog_user` VALUES (1, 'admin', '1254c27e22c2ec22e62855fdf5878027', ' ', '2022-02-14 22:21:02', '0000-00-00 00:00:00');
+INSERT INTO `blog_user` VALUES (1, 'admin', '1254c27e22c2ec22e62855fdf5878027', ' ', '2022-02-14 22:21:02', '2022-02-14 22:21:02');
 
 -- ----------------------------
 -- Table structure for users

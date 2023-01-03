@@ -2,17 +2,13 @@ package view
 
 import (
 	"blog/config"
+	"blog/dao"
 	"blog/models"
 	"net/http"
 )
 
 func (*HtmlHandler) Index(w http.ResponseWriter, request *http.Request) {
-	var categorys = []models.Category{
-		{
-			Cid:  1,
-			Name: "go",
-		},
-	}
+	var categorys = dao.GetAllCategory()
 	var posts = []models.PostMore{
 		{
 			Pid:          1,
