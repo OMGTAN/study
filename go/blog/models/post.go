@@ -2,6 +2,7 @@ package models
 
 import (
 	"blog/config"
+	"html/template"
 	"time"
 )
 
@@ -20,18 +21,18 @@ type Post struct {
 }
 
 type PostMore struct {
-	Pid          int    `json:"pid"`
-	Title        string `json:"title"`
-	Slug         string `json:"slug"`
-	Content      string `json:"content"`
-	CategoryId   int    `json:"categoryId"`
-	CategoryName string `json:"categoryName"`
-	UserId       int    `json:"userId"`
-	UserName     string `json:"userName"`
-	ViewCount    int    `json:"viewCount"`
-	Type         int    `json:"type"` //0:普通文章 1：自定义文章
-	CreateAt     string `json:"createAt"`
-	UpdateAt     string `json:"updateAt"`
+	Pid          int           `json:"pid"`
+	Title        string        `json:"title"`
+	Slug         string        `json:"slug"`
+	Content      template.HTML `json:"content"`
+	CategoryId   int           `json:"categoryId"`
+	CategoryName string        `json:"categoryName"`
+	UserId       int           `json:"userId"`
+	UserName     string        `json:"userName"`
+	ViewCount    int           `json:"viewCount"`
+	Type         int           `json:"type"` //0:普通文章 1：自定义文章
+	CreateAt     string        `json:"createAt"`
+	UpdateAt     string        `json:"updateAt"`
 }
 type PostReq struct {
 	Pid        int    `json:"pid"`
