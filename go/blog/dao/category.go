@@ -20,8 +20,7 @@ func GetAllCategory() []models.Category {
 }
 
 func GetCategoryNameById(categoryId int) string {
-	rows, err := DB.Query("select name from blog_category where cid = ?", categoryId)
-	common.PrintErr(err)
+	rows := DB.QueryRow("select name from blog_category where cid = ?", categoryId)
 
 	var categoryName string
 	errr := rows.Scan(&categoryName)

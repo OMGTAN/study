@@ -3,8 +3,7 @@ package dao
 import "blog/common"
 
 func GetUserNameById(userId int) string {
-	rows, err := DB.Query("select user_name from blog_user where uid = ?", userId)
-	common.PrintErr(err)
+	rows := DB.QueryRow("select user_name from blog_user where uid = ?", userId)
 
 	var userName string
 	errr := rows.Scan(&userName)

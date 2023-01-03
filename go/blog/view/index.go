@@ -13,14 +13,15 @@ import (
 func (*HtmlHandler) Index(w http.ResponseWriter, request *http.Request) {
 	var categorys = dao.GetAllCategory()
 
+	request.ParseForm()
 	pageStr := request.Form.Get("page")
-	var pageNo = 1
-	var err error
-	if pageStr != "" {
-		pageNo, err = strconv.Atoi(pageStr)
-		common.PrintErr(err)
+	if pageStr == "" {
+		pageStr = "1"
 	}
+	pageNo, err := strconv.Atoi(pageStr)
+	common.PrintErr(err)
 	pageSize := 10
+
 	posts := dao.GetPost(pageNo, pageSize)
 
 	var postMoreList []models.PostMore
@@ -48,14 +49,20 @@ func (*HtmlHandler) Index(w http.ResponseWriter, request *http.Request) {
 		postMoreList = append(postMoreList, postMore)
 	}
 
-	var homeResp = &models.HomeResp{
+	total := dao.GetPostTotal()
+	pageTotal := (total-1)/pageSize + 1
+	var pages []int
+	for i := 1; i < pageTotal+1; i++ {
+		pages = append(pages, i)
+	}
+	homeResp := &models.HomeResp{
 		Viewer:    config.Conf.Viewer,
 		Categorys: categorys,
 		Posts:     postMoreList,
-		Total:     1,
+		Total:     total,
 		Page:      pageNo,
-		Pages:     []int{1},
-		PageEnd:   true,
+		Pages:     pages,
+		PageEnd:   pageNo != pageTotal,
 	}
 	models.Pages.Index.WriteData(w, homeResp)
 }
