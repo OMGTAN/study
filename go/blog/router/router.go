@@ -17,7 +17,10 @@ func Route() {
 	//处理'/c'请求,分类分页
 	http.HandleFunc("/c/", view.HtmlHdl.Category)
 
-	//处理'/c'请求,分类分页
+	//处理'/p'请求,文章详情
+	http.HandleFunc("/p/", view.HtmlHdl.Post)
+
+	//处理登录请求
 	http.HandleFunc("/api/v1/login", api.ApiHdl.Login)
 
 	http.Handle("/resource/", http.StripPrefix("/resource/", http.FileServer(http.Dir("public/resource/"))))
