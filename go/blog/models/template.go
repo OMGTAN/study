@@ -33,3 +33,10 @@ func (t *TemplateModel) WriteData(w http.ResponseWriter, data interface{}) {
 		log.Panicln("页面填充数据失败：", err)
 	}
 }
+
+func (t *TemplateModel) WriteError(w http.ResponseWriter, err error) {
+	if err != nil {
+		_, err := w.Write([]byte(err.Error()))
+		log.Panicln("错误信息：", err)
+	}
+}

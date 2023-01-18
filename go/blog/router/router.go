@@ -24,4 +24,7 @@ func Route() {
 	http.HandleFunc("/api/v1/login", api.ApiHdl.Login)
 
 	http.Handle("/resource/", http.StripPrefix("/resource/", http.FileServer(http.Dir("public/resource/"))))
+
+	//处理图片请求异常
+	http.Handle("/p/img/", http.StripPrefix("/resource/", http.FileServer(http.Dir("public/resource/"))))
 }

@@ -5,6 +5,7 @@ import (
 	"blog/dao"
 	"blog/models"
 	"html/template"
+	"log"
 	"time"
 )
 
@@ -14,8 +15,8 @@ func GetPostDetail(pId int) (*models.PostRes, error) {
 
 	if err != nil {
 		return nil, err
-
 	}
+
 	categoryName := dao.GetCategoryNameById(post.CategoryId)
 	userName := dao.GetUserNameById(post.UserId)
 	postMore := models.PostMore{
@@ -32,12 +33,13 @@ func GetPostDetail(pId int) (*models.PostRes, error) {
 		CreateAt:     post.CreateAt.Format("2006-01-02 15:04:05"),
 		UpdateAt:     post.UpdateAt.Format("2006-01-02 15:04:05"),
 	}
+
 	postRes := models.PostRes{
-		Description:  "",
 		Viewer:       config.Conf.Viewer,
 		SystemConfig: config.Conf.System,
 		Article:      postMore,
 	}
+	log.Println("service post : ", postMore.CategoryName)
 	return &postRes, nil
 }
 

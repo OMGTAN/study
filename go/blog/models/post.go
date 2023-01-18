@@ -51,7 +51,6 @@ type SearchResp struct {
 }
 
 type PostRes struct {
-	Description string
 	config.Viewer
 	config.SystemConfig
 	Article PostMore

@@ -3,6 +3,7 @@ package dao
 import (
 	"blog/common"
 	"blog/models"
+	"log"
 )
 
 func GetPostTotal() int {
@@ -79,6 +80,7 @@ func GetPostDetailById(pId int) (*models.Post, error) {
 	row := DB.QueryRow("select * from blog_post where pid=?", pId)
 	err := row.Err()
 	if err != nil {
+		log.Println("dao post 1111, pid: ", pId, " err msg: ", err.Error())
 		return nil, err
 	}
 	var post models.Post
@@ -96,6 +98,7 @@ func GetPostDetailById(pId int) (*models.Post, error) {
 		&post.UpdateAt,
 	)
 	if err != nil {
+		log.Println("dao post 2222, pid: ", pId, " err msg: ", err.Error())
 		return nil, err
 	}
 
