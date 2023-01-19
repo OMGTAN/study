@@ -5,7 +5,6 @@ import (
 	"blog/dao"
 	"blog/models"
 	"html/template"
-	"log"
 	"time"
 )
 
@@ -39,10 +38,30 @@ func GetPostDetail(pId int) (*models.PostRes, error) {
 		SystemConfig: config.Conf.System,
 		Article:      postMore,
 	}
-	log.Println("service post : ", postMore.CategoryName)
 	return &postRes, nil
+}
+
+func GetPostById(pId int) (*models.Post, error) {
+
+	post, err := dao.GetPostDetailById(pId)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return post, nil
 }
 
 func DateDay(time time.Time) {
 	panic("unimplemented")
+}
+
+func SavePost(post *models.Post) {
+
+	dao.SavePost(post)
+}
+
+func UpdatePost(post *models.Post) {
+
+	dao.UpdatePost(post)
 }

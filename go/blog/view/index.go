@@ -8,6 +8,7 @@ import (
 	"html/template"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 func (*HtmlHandler) Index(w http.ResponseWriter, request *http.Request) {
@@ -22,7 +23,18 @@ func (*HtmlHandler) Index(w http.ResponseWriter, request *http.Request) {
 	common.PrintErr(err)
 	pageSize := 10
 
-	posts := dao.GetPost(pageNo, pageSize)
+	path := request.URL.Path
+	slug := strings.TrimPrefix(path, "/")
+	var posts []models.Post
+	var total int
+	if slug == "" {
+		posts = dao.GetPost(pageNo, pageSize)
+		total = dao.GetPostTotal()
+	} else {
+		posts = dao.GetPostBySlug(slug, pageNo, pageSize)
+		total = dao.GetPostTotalBySlug(slug)
+
+	}
 
 	var postMoreList []models.PostMore
 	for _, post := range posts {
@@ -49,7 +61,6 @@ func (*HtmlHandler) Index(w http.ResponseWriter, request *http.Request) {
 		postMoreList = append(postMoreList, postMore)
 	}
 
-	total := dao.GetPostTotal()
 	pageTotal := (total-1)/pageSize + 1
 	var pages []int
 	for i := 1; i < pageTotal+1; i++ {

@@ -22,7 +22,7 @@ func (*Response) Success(w http.ResponseWriter, data interface{}) {
 
 	result, _ := json.Marshal(res)
 	w.Header().Set("Content-Type", "application/json")
-	_, err := w.Write(result)
+	_, err := w.Write(result) 
 	common.PrintErr(err)
 }
 
