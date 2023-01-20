@@ -46,8 +46,8 @@ type PostReq struct {
 }
 
 type SearchResp struct {
-	Pid   int    `orm:"pid" json:"pid"`
-	Title string `orm:"title" json:"title"`
+	Pid   int    `json:"pid"`
+	Title string `json:"title"`
 }
 
 type PostRes struct {

@@ -32,6 +32,9 @@ func Route() {
 	//处理发布文章请求
 	http.HandleFunc("/api/v1/post", api.ApiHdl.SaveOrUpdatePost)
 
+	//处理发布文章请求
+	http.HandleFunc("/api/v1/post/search", api.ApiHdl.SearchPost)
+
 	//查询文章信息
 	http.HandleFunc("/api/v1/post/", api.ApiHdl.GetPostDetail)
 
