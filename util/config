@@ -25,3 +25,25 @@ docker run --name pgsql -p 5432:5432 -e POSTGRES_PASSWORD=123456 -d postgres:15
 
 docker pull redis:7
 docker run --name redis-7  -p 6379:6379 -d redis:7
+
+使用以下命令永久排除****作为保留端口(如果端口被占用需要重启一次电脑)
+netsh int ipv4 add excludedportrange protocol=tcp startport=2181 numberofports=1 store=persistent
+netsh int ipv4 add excludedportrange protocol=tcp startport=5601 numberofports=1 store=persistent
+redis 6379
+pg 5432
+mysql 3306
+zookeeper 2181 8080 2182 8081 2182 8082 2183 8083
+elasticsearch 9200 9300
+kibana 5601
+
+
+设置es密码
+docker exec -it elasticsearch bash
+# 创建内置的用户  elastic， kibana等用户都会创建，按照步骤操作即可
+elasticsearch-setup-passwords interactive
+
+elasticsearch-reset-password -u kibana_system
+
+elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v8.6.1/elasticsearch-analysis-ik-8.6.1.zip
+
+

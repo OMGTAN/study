@@ -1,0 +1,8 @@
+server.host: "0.0.0.0"
+server.shutdownTimeout: "5s"
+elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+monitoring.ui.container.elasticsearch.enabled: true
+# 注意这里的用户名不能用elastic，使用之后会启动报错，看下面的错误2
+elasticsearch.username: "kibana_system"
+# 这里的密码是在启动时候配置的，如果忘记也没关系
+elasticsearch.password: "yzxQlsdXrzg5VVMqNFS0"
