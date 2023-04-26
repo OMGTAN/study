@@ -40,14 +40,14 @@ services:
     ports:
       - 3306:3306
     
-  redis:
-    image: redis:7
-    container_name: redis7
-    # command: redis-server --requirepass yourpassword
-    volumes:
-      - D:/Job/docker/redis/data:/data 
-      - D:/Job/docker/redis/config:/usr/local/etc/redis/ 
-      - D:/Job/docker/redis/log:/logs 
-    ports:
-      - 6379:6379
+  # redis:
+  #   image: redis:7
+  #   container_name: redis7
+  #   # command: redis-server --requirepass yourpassword
+  #   volumes:
+  #     - D:/Job/docker/redis/data:/data 
+  #     - D:/Job/docker/redis/config:/usr/local/etc/redis/ 
+  #     - D:/Job/docker/redis/log:/logs 
+  #   ports:
+  #     - 6379:6379
       
