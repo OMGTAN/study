@@ -135,11 +135,5 @@ services:
   #     # 单节点     
   #     - discovery.type=single-node
   #     - "ES_JAVA_OPTS=-Xms1G -Xmx2G"
-  #   volumes:
-  #     - D:/Job/docker/mysql/data:/var/lib/mysql
-  #     - D:/Job/docker/mysql/conf:/etc/mysql/conf.d
-  #     - D:/Job/docker/mysql/logs:/logs
-  #   ports:
-  #     - 3306:3306
     
       
