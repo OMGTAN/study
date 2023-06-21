@@ -9,7 +9,7 @@ cd /d "%~dp0"
 ::netsh interface ip set address name="WLAN" source=static addr=192.168.0.230 mask=255.255.255.0 gateway=192.168.0.1 
 
 ::netsh interface ip set address name="WLAN" source=static addr=192.168.0.230 mask=255.255.255.0 
-netsh interface ip set address name="ÒÔÌ«Íø" source=static addr=172.30.126.105 mask=255.255.255.0 gateway=172.30.126.1
+netsh interface ip set address name="ÒÔÌ«Íø" source=static addr=192.168.127.22 mask=255.255.255.0 gateway=192.168.127.1
 
 @echo //-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 @echo //  ÉèÖÃDNS
