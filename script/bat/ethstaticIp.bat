@@ -9,12 +9,13 @@ cd /d "%~dp0"
 ::netsh interface ip set address name="WLAN" source=static addr=192.168.0.230 mask=255.255.255.0 gateway=192.168.0.1 
 
 ::netsh interface ip set address name="WLAN" source=static addr=192.168.0.230 mask=255.255.255.0 
-netsh interface ip set address name="以太网" source=static addr=192.168.127.22 mask=255.255.255.0 gateway=192.168.127.1
+netsh interface ip set address name="以太网" source=static addr=192.168.127.236 mask=255.255.255.0 gateway=192.168.127.1
 
 @echo //-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 @echo //  设置DNS
 @echo //-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 ::netsh interface ip set dns "WLAN" static 114.114.114.114 primary 
 ::netsh interface ip add dns "WLAN" 8.8.8.8 
+netsh interface ip add dns "以太网" 192.168.171.250
 @echo //  固定IP设置完成！
 @pause
