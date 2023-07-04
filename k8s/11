@@ -1,0 +1,47 @@
+sudo docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.27.0
+sudo docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.27.0
+sudo docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.27.0
+sudo docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.27.0
+sudo docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.9
+sudo docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.5.7-0
+sudo docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/coredns/coredns:v1.10.1
+
+
+nmap registry.aliyuncs.com -p 443
+nmap registry.cn-hangzhou.aliyuncs.com -p 443
+sudo docker pull registry.aliyuncs.com/google_containers/kube-apiserver:v1.27.0
+
+
+网易:
+http://hub-mirror.c.163.com
+中国科技大学:
+https://docker.mirrors.ustc.edu.cn
+阿里云:
+https://cr.console.aliyun.com/
+
+registry.cn-hangzhou.aliyuncs.com
+registry.aliyuncs.com
+
+
+scp /home/suaee/.kube/config 10.21.18.92:/home/suaee/.kube
+
+systemctl stop kubelet
+
+
+sudo systemctl stop kubelet 
+sudo systemctl stop etcd 
+sudo systemctl stop docker
+sudo systemctl stop docker.socket
+sudo systemctl stop containerd
+
+sudo systemctl start containerd
+sudo systemctl start docker.socket
+sudo systemctl start docker
+sudo systemctl start etcd
+sudo systemctl start kubelet
+sudo systemctl status docker etcd kubelet
+
+
+curl http://localhost:8901/test/enclosureMail
+
+telnet 34.234.221.131 443
