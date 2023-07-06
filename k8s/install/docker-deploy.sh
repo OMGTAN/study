@@ -7,3 +7,11 @@ sudo yum -y install docker-ce
 sudo systemctl start docker && sudo systemctl enable docker
 # 启动完成后查看
 sudo docker info
+
+
+
+sudo vi /etc/docker/daemon.json
+
+{ "bip": "10.255.1.1/24" }
+
+sudo systemctl restart docker.service 

@@ -151,8 +151,10 @@ kind: ClusterConfiguration
 kubernetesVersion: 1.27.0
 networking:
   dnsDomain: cluster.local
-  podSubnet: 10.244.0.0/16	#pod 网段
-  serviceSubnet: 10.96.0.0/12
+  podSubnet: 10.255.192.0/18	#pod 网段
+  serviceSubnet: 10.255.128.0/18
+  # podSubnet: 10.244.0.0/16	#pod 网段
+  # serviceSubnet: 10.96.0.0/12
 scheduler: {}
 ---		#新增
 apiVersion: kubeproxy.config.k8s.io/v1alpha1
@@ -170,8 +172,7 @@ sudo kubeadm config images pull --config=kubeadm.yaml
 # 初始化k8s 服务器起码2C，否则报错
 sudo kubeadm init --config kubeadm.yaml | tee kubeadm-init.log
 
-kubeadm join 10.21.18.91:6443 --token abcdef.0123456789abcdef \
-	--discovery-token-ca-cert-hash sha256:f4adbae15af1fe985431fe2ec60307f2e66694058992b4dd5485836ccb80f237 
+kubeadm join 10.21.18.91:6443 --token abcdef.0123456789abcdef --discovery-token-ca-cert-hash sha256:d52111d4260751c7b58fe7d3afbb7ca92f93e2a3c2b05646344e04ce115fd1c6
 
 # 记录扩容命令，安装过程中记录 TODO
 
