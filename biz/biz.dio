@@ -1,0 +1,268 @@
+<mxfile host="65bd71144e">
+    <diagram id="KsBPwPaHOT0qkHTB_WtB" name="department">
+        <mxGraphModel dx="746" dy="424" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="国有出资机构&lt;br&gt;国有出资企业" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" style="edgeStyle=none;html=1;" parent="1" source="3" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="失去控股权" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2593" y="4" relative="1" as="geometry">
+                        <mxPoint x="8" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="国资监管机构" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="国有及国有控股企业" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="国有实际控制企业" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="人民政府" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="HgrqKhyyioYIkwQUUtQX" name="cq-flow">
+        <mxGraphModel dx="746" dy="424" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-4" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-2" target="tlHRwxTEPV9LYp2wNqDl-3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-2" value="转让方" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-6" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-3" target="tlHRwxTEPV9LYp2wNqDl-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-3" value="内部决策&lt;br&gt;职工安置、债权处理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-8" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-5" target="tlHRwxTEPV9LYp2wNqDl-7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-5" value="会计师事务所审计" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-10" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-7" target="tlHRwxTEPV9LYp2wNqDl-11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-7" value="资产评估" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-14" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-9" target="tlHRwxTEPV9LYp2wNqDl-13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-9" value="正式披露：20&lt;br&gt;控制权转移：预20天&lt;br&gt;近一年审计报告&lt;br&gt;最近一期财务报表" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-12" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-11" target="tlHRwxTEPV9LYp2wNqDl-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-11" value="产权交易机构" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-17" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-13" target="tlHRwxTEPV9LYp2wNqDl-16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-13" value="受让方资格条件&lt;br&gt;报国资监管机构" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-19" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-16" target="tlHRwxTEPV9LYp2wNqDl-18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-16" value="登记意向受让方" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-22" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-18" target="tlHRwxTEPV9LYp2wNqDl-21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-18" value="组织竞价" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-24" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-21" target="tlHRwxTEPV9LYp2wNqDl-23">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-21" value="签订交易合同" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-27" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-23" target="tlHRwxTEPV9LYp2wNqDl-26">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-23" value="交易价款结算" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-29" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="tlHRwxTEPV9LYp2wNqDl-26" target="tlHRwxTEPV9LYp2wNqDl-28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-26" value="公告：不少于5天" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tlHRwxTEPV9LYp2wNqDl-28" value="交易凭证" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="450" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="2s3T4RIdyGY8BYuDb3xd-3" value="" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="2s3T4RIdyGY8BYuDb3xd-1" target="2s3T4RIdyGY8BYuDb3xd-2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2s3T4RIdyGY8BYuDb3xd-6" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.028;exitY=0.622;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="2s3T4RIdyGY8BYuDb3xd-1" target="2s3T4RIdyGY8BYuDb3xd-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2s3T4RIdyGY8BYuDb3xd-1" value="非公开转让" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="660" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="2s3T4RIdyGY8BYuDb3xd-2" value="涉及主业处于关系国家安全、国民经济命脉的重要行业和关键领域企业的重组整合，对受让方有特殊要求，企业产权需要在国有及国有控股企业之间转让的，经国资监管机构批准，可以采取非公开协议转让方式；" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="570" width="400" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="2s3T4RIdyGY8BYuDb3xd-5" value="同一国家出资企业及其各级控股企业或实际控制企业之间因实施内部重组整合进行产权转让的，经该国家出资企业审议决策，可以采取非公开协议转让方式。" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="710" width="400" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="2s3T4RIdyGY8BYuDb3xd-8" value="以下情形按照《中华人民共和国公司法》、企业章程履行决策程序后，转让价格可以资产评估报告或最近一期审计报告确认的净资产值为基础确定，且不得低于经评估或审计的净资产值：&lt;br/&gt;（一）同一国家出资企业内部实施重组整合，转让方和受让方为该国家出资企业及其直接或间接全资拥有的子企业；&lt;br/&gt;（二）同一国有控股企业或国有实际控制企业内部实施重组整合，转让方和受让方为该国有控股企业或国有实际控制企业及其直接、间接全资拥有的子企业" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="860" width="580" height="170" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="ZjidGW4zLYFKndvBF5fW" name="zz-flow">
+        <mxGraphModel dx="746" dy="424" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-7" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9J2hItU8pMV9La7AG5y1-1" target="9J2hItU8pMV9La7AG5y1-6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-1" value="增资企业" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-9" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9J2hItU8pMV9La7AG5y1-6" target="9J2hItU8pMV9La7AG5y1-8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-6" value="形成书面决议" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-11" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9J2hItU8pMV9La7AG5y1-8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="570" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-8" value="审计、资产评估" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-14" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9J2hItU8pMV9La7AG5y1-12" target="9J2hItU8pMV9La7AG5y1-13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-12" value="产权交易机构" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="270" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-17" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9J2hItU8pMV9La7AG5y1-13" target="9J2hItU8pMV9La7AG5y1-16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-13" value="预、正式：均不少于20&lt;br&gt;直接正式：不少于40&lt;br&gt;近三年审计报告" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="270" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-19" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9J2hItU8pMV9La7AG5y1-16" target="9J2hItU8pMV9La7AG5y1-18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-16" value="登记意向方" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="270" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PQAQQdUVNhvRgRVQwBvf-2" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9J2hItU8pMV9La7AG5y1-18" target="PQAQQdUVNhvRgRVQwBvf-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9J2hItU8pMV9La7AG5y1-18" value="遴选：竞价&lt;br&gt;竞争性谈判&lt;br&gt;综合评议" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="410" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Po38cugr5GFdlJqCo9fA-2" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="PQAQQdUVNhvRgRVQwBvf-1" target="Po38cugr5GFdlJqCo9fA-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="PQAQQdUVNhvRgRVQwBvf-1" value="非货币出资：&lt;br&gt;增资企业审议同意&lt;br&gt;评估机构评估" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="410" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Po38cugr5GFdlJqCo9fA-1" value="公告：不少于5天" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="410" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-1" value="非公开：报国资监管" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="640" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-2" value="因国有资本布局结构调整需要，由特定的国有及国有控股企业或国有实际控制企业参与增资；" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="580" width="290" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-3" value="因国家出资企业与特定投资方建立战略合作伙伴或利益共同体需要，由该投资方参与国家出资企业或其子企业增资。" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="700" width="290" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-8" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="LfrTZBKhsU9xzrSkF5yE-4" target="LfrTZBKhsU9xzrSkF5yE-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-9" style="edgeStyle=none;html=1;" edge="1" parent="1" source="LfrTZBKhsU9xzrSkF5yE-4" target="LfrTZBKhsU9xzrSkF5yE-6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-10" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="LfrTZBKhsU9xzrSkF5yE-4" target="LfrTZBKhsU9xzrSkF5yE-7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-4" value="非公开：报出资企业" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="910" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-5" value="国家出资企业直接或指定其控股、实际控制的其他子企业参与增资；" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="820" width="290" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-6" value="企业债权转为股权；" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="910" width="290" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="LfrTZBKhsU9xzrSkF5yE-7" value="企业原股东增资。" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="990" width="290" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="iMfPeS7M2n1zRRuBY42l" name="zc-flow">
+        <mxGraphModel dx="746" dy="424" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="vQ-SzQ39HZKxLLwiWfcE-5" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="vQ-SzQ39HZKxLLwiWfcE-1" target="vQ-SzQ39HZKxLLwiWfcE-4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="vQ-SzQ39HZKxLLwiWfcE-1" value="企业资产转让" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="vQ-SzQ39HZKxLLwiWfcE-7" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="vQ-SzQ39HZKxLLwiWfcE-4" target="vQ-SzQ39HZKxLLwiWfcE-6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="vQ-SzQ39HZKxLLwiWfcE-4" value="100~1000万元：10天&lt;br&gt;1000万元以上：20天" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="vQ-SzQ39HZKxLLwiWfcE-9" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="vQ-SzQ39HZKxLLwiWfcE-6" target="vQ-SzQ39HZKxLLwiWfcE-8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="vQ-SzQ39HZKxLLwiWfcE-6" value="除规定外、不得设置转让条件" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="vQ-SzQ39HZKxLLwiWfcE-8" value="原则上一次性付清" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="270" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="gQFSNtBjlzWC_aEvFvqq" name="detail">
+        <mxGraphModel dx="746" dy="424" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="HxoVDfBX_aNTZ8u7cDHO-1" value="，仅调整转让底价后重新披露信息的，产权转让披露时间不少于10 个工作日，资产转让披露时间不少于 5 个工作日。" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="70" width="320" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
