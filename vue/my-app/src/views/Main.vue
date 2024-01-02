@@ -1,14 +1,26 @@
 <template>
-    <div>
-        <h1>Main</h1>
-        <router-view></router-view>
-    </div>
+    <el-container>
+      <el-aside width="200px">
+        <common-aside/>
+      </el-aside>
+      <el-container>
+        <el-header>Header</el-header>
+        <el-main>
+          
+          
+        </el-main>
+      </el-container>
+    </el-container>
 </template>
 
 <script>
-export default {
-    data(){
-        return {}
+    import CommonAside from '@/components/CommonAside.vue';
+    export default {
+        data(){
+            return {}
+        },
+        components: {
+            CommonAside
+        }
     }
-}
 </script>
