@@ -6,5 +6,9 @@
   <router-view/>
 </template>
 
-<style>
+<style >
+
+#app{
+    height: 100%;
+}
 </style>

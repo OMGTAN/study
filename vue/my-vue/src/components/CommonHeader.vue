@@ -1,13 +1,14 @@
 <template>
     <el-header>
-        <div class="l-container">
+        <div class="l-content">
             <el-button size="small">
-            <el-icon :size="20">
-                <Menu />
-            </el-icon>
-        </el-button>
+                <el-icon :size="20">
+                    <Menu />
+                </el-icon>
+            </el-button>
+            <h3>首页</h3>
         </div>
-        <div class="r-container">
+        <div class="r-content">
             <el-dropdown>
                 <span class="el-dropdown-link">
                     <img class="user" src="../assets/user.png" />
@@ -30,13 +31,25 @@
         justify-content: space-between;
         align-content: center;
         width: 100%;
+        background-color: #333;
     }
-    .r-container{
+    .r-content{
         .user{
             width: 40px;
             height: 40px;
             border-radius: 50%;
         }
+    }
+    .l-content{
+        display: flex;
+        align-items: center;
+        .el-button{
+            margin-right: 20px;
+        }
+        h3{
+            color: #fff;
+        }
+
     }
 
 </style>

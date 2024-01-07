@@ -92,4 +92,7 @@
         width: 18px;
         height: 18px;
     }
+    .el-menu{
+        border-right: none;
+    }
 </style>
