@@ -1,7 +1,7 @@
 <template>
     <el-header>
         <div class="l-content">
-            <el-button size="small">
+            <el-button size="small" @click="handleIsCollapse">
                 <el-icon :size="20">
                     <Menu />
                 </el-icon>
@@ -24,6 +24,25 @@
         
     </el-header>
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+import {useStore} from 'vuex'
+
+export default defineComponent({
+    setup() {
+        let store = useStore();
+        let handleIsCollapse = ()=>{
+            store.commit("updateIsCollapse")
+        }
+
+        return {
+            handleIsCollapse
+        }
+    },
+})
+</script>
+
 
 <style lang="less" scoped>
     header{
