@@ -1,7 +1,12 @@
 <template>
     <el-aside  :width= "$store.state.isCollapse ? '180px' : '64px'">
+
         <el-menu :collapse= "!$store.state.isCollapse" background-color="#545c64" text-color="#fff" :collapse-transition = "false">
-            <el-menu-item v-for="item in noChildren()" :index= "item.path" :key="item.path" >
+
+            <h3 v-show="$store.state.isCollapse">后台管理</h3>
+            <h3 v-show="!$store.state.isCollapse">后台</h3>
+            
+            <el-menu-item v-for="item in noChildren()" :index= "item.path" :key="item.path" @click="clickMenu(item)">
                 <component class="icons" :is="item.icon"></component>
                 <span>{{item.label}}</span>
             </el-menu-item>
@@ -12,7 +17,7 @@
                 <span>{{item.label}}</span>
             </template>
             <el-menu-item-group>
-                <el-menu-item v-for="(subItem, subIndex) in item.children" :index="subItem.path">
+                <el-menu-item v-for="(subItem, subIndex) in item.children" :index="subItem.path" :key="subIndex" @click="clickMenu(subItem)">
                     <component class="icons" :is="subItem.icon"></component>
                     <span>{{subItem.label}}</span>
                 </el-menu-item>
@@ -23,6 +28,8 @@
 </template>
 
 <script>
+    import {useRouter}  from 'vue-router';
+
     export default{
         setup(){
             const list = [
@@ -68,7 +75,8 @@
                 ],
                 },
             ]
-
+        
+            const router = useRouter();
 
             const noChildren= ()=>{
                 return list.filter((item) => !item.children);
@@ -77,9 +85,14 @@
                 return list.filter((item) => item.children);
             }
 
+            const clickMenu = (item)=>{
+                router.push(item.name)
+            }
+
             return {
                 noChildren,
-                hasChildren
+                hasChildren,
+                clickMenu
             }
 
         }
@@ -92,7 +105,14 @@
         width: 18px;
         height: 18px;
     }
-    .el-menu{
+    .el-menu {
         border-right: none;
+        h3 {
+            line-height: 48px;
+            color: #fff;
+            text-align: center;
+        }
     }
+
+
 </style>
