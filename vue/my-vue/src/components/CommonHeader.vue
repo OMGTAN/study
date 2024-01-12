@@ -53,6 +53,8 @@ export default defineComponent({
         background-color: #333;
     }
     .r-content{
+        display: flex;
+        align-items: center;
         .user{
             width: 40px;
             height: 40px;

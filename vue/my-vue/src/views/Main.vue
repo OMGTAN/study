@@ -5,7 +5,6 @@
             <el-container class="r-content">
                 <common-header/>
                 <el-main>
-                    我是组件
                     <router-view/>
                 </el-main>
             </el-container>
