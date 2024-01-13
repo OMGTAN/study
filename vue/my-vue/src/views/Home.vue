@@ -26,18 +26,12 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
+import axios from 'axios'
 
 export default defineComponent({
     setup() {
-        const tableData = [
-            {
-                name : "name1",
-                todayBuy : "todayB",
-                monthBuy : "monthB",
-                totalBuy : "totalB"
-            }
-        ]
+        let tableData = ref([]);
         const tableLable =  {
             name : "姓名",
             todayBuy : "今日购买",
@@ -45,6 +39,17 @@ export default defineComponent({
             totalBuy : "总购买"
         }
 
+        let getTableData = async ()=>{
+            axios.get('/home/getData').then((res)=>{
+                // console.log(res);
+                tableData.value = res.data.data.tableData
+            }
+            )
+        }
+
+        onMounted(()=>{
+            getTableData();
+        })
         return{
             tableLable,
             tableData

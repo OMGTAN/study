@@ -7,6 +7,7 @@ import router from './router/index.js'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import './assets/less/index.less'
 import store  from './store/index.js'
+import './api/mock.js'
 
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {

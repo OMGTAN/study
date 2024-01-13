@@ -11,7 +11,7 @@
         <div class="r-content">
             <el-dropdown>
                 <span class="el-dropdown-link">
-                    <img class="user" src="../assets/user.png" />
+                    <img class="user" src="../assets/user.jpg" />
                 </span>
                 <template #dropdown>
                 <el-dropdown-menu>
