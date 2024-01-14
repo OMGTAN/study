@@ -26,12 +26,13 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, getCurrentInstance, onMounted, ref } from 'vue'
 import axios from 'axios'
 
 export default defineComponent({
     setup() {
         let tableData = ref([]);
+        const {proxy}  = getCurrentInstance();
         const tableLable =  {
             name : "姓名",
             todayBuy : "今日购买",
@@ -40,12 +41,16 @@ export default defineComponent({
         }
 
         let getTableData = async ()=>{
-            axios.get('/home/getData').then((res)=>{
-                // console.log(res);
-                tableData.value = res.data.data.tableData
-            }
-            )
-        }
+            // axios.get('/home/getTableData').then((res)=>{
+            //     // console.log(res);
+            //     tableData.value = res.data.data.tableData
+            // }
+            // )
+
+            let res = await proxy.$api.getTableData();
+            console.log(res)
+            tableData.value = res.tableData
+        };
 
         onMounted(()=>{
             getTableData();
