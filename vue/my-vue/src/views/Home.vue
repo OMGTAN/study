@@ -21,6 +21,18 @@
                 </el-table>
             </el-card>
         </el-col>
+
+        <el-col :span = "16" >
+            <div class="num">
+                <el-card :body-style="{display:'flex', padding: 0}" v-for="item in countData" :key="item.name">
+                    <component class="icons" :is="item.icon" :style="{background:item.color}"></component>
+                    <div class="details">
+                        <p class="num">￥{{ item.value }}</p>
+                        <p class="txt">{{ item.name }}</p>
+                    </div>
+                </el-card>
+            </div>
+        </el-col>
         
     </el-row>
 </template>
@@ -32,6 +44,7 @@ import axios from 'axios'
 export default defineComponent({
     setup() {
         let tableData = ref([]);
+        let countData = ref([]);
         const {proxy}  = getCurrentInstance();
         const tableLable =  {
             name : "姓名",
@@ -48,16 +61,22 @@ export default defineComponent({
             // )
 
             let res = await proxy.$api.getTableData();
-            console.log(res)
             tableData.value = res.tableData
+        };
+
+        let getCountData = async ()=>{
+            let res = await proxy.$api.getCountData();
+            countData.value = res.countData
         };
 
         onMounted(()=>{
             getTableData();
+            getCountData();
         })
         return{
             tableLable,
-            tableData
+            tableData,
+            countData,
         }
     },
 })
@@ -96,4 +115,36 @@ export default defineComponent({
         margin-top: 20px;
     }
 
+    .num{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .el-card{
+            width: 32%;
+            margin-bottom: 10px;
+        }
+        .icons{
+            width: 80px;
+            height: 80px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 80px;
+            color:#fff;
+        }
+        .details{
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .num{
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+            .txt{
+                font-size: 14px;
+                text-align: center;
+                color: #999;
+            }
+        }
+    }
 </style>

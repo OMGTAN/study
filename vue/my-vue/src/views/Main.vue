@@ -1,6 +1,6 @@
 <template>
     <div class="common-layout">
-        <el-container>
+        <el-container class="lay-container">
             <common-aside></common-aside>
             <el-container class="r-content">
                 <common-header/>
@@ -32,6 +32,9 @@ export default defineComponent({
 }
 .common-layout{
     height: 100%;
+    .lay-container{
+        flex-wrap: nowrap;
+    }
     & > .el-container{
         height: 100%;
         & > .el-aside{

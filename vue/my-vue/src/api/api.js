@@ -1,6 +1,7 @@
 import request  from "./request";
 
 export default {
+
     getTableData(params){
         return request({
             url:'/home/getTableData',
@@ -8,5 +9,14 @@ export default {
             data: params,
             mock: true
         })
-    }
+    },
+
+    getCountData(params){
+        return request({
+            url:'/home/getCountData',
+            method: 'get',
+            data: params,
+            mock: true
+        })
+    },
 }
