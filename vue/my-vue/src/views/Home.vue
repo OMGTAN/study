@@ -75,10 +75,19 @@ export default defineComponent({
             countData.value = res.countData
         };
 
-        const xData = [
-            {苹果: 3995, 小米: 3541, 华为: 2409, oppo: 1110, vivo: 3894, 一加: 1212},
-            {苹果: 4995, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
-        ]
+        const xData = {
+            date:['20241001', '20241002', '20241003', '20241004', '20241005', '20241006', '20241007', ],
+            data:
+            [
+                {苹果: 3995, 小米: 3541, 华为: 2409, oppo: 1110, vivo: 3894, 一加: 1212},
+                {苹果: 4995, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
+                {苹果: 4995, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
+                {苹果: 4995, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
+                {苹果: 4995, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
+                {苹果: 4995, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
+                {苹果: 4995, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
+            ]
+        }
 
         let xOptions = reactive({
             textStyle:{
@@ -92,7 +101,7 @@ export default defineComponent({
             },
             xAxis: {
                 type:"category",
-                data: ["aaa"],
+                data: [],
                 axisLine:{
                     lineStyle:{
                         color: "#17b3a3"
@@ -113,19 +122,8 @@ export default defineComponent({
                     },
                 }
             ],
-            color: ["#2ec7e9", "#b6a2de", "#5ab1ef", "#ffb980", "#d87a80", "#8d98b3", ],
-            series: [
-                {
-                data: [10, 22, 28, 43, 49],
-                type: 'line',
-                stack: 'x'
-                },
-                {
-                data: [5, 4, 3, 5, 10],
-                type: 'line',
-                stack: 'x'
-                }
-            ]
+            color: ["#2ec7e9", "#b6a2de", "#5ab1ef", "#ffb980", "#d87a80", "#8d98b3"],
+            series: []
         })
         let pieOptions = reactive({
             tooltip:{
@@ -148,19 +146,19 @@ export default defineComponent({
         })
 
         const getChatData = ()=>{
-            const keys = Object.keys(xData[0]);
+            const keys = Object.keys(xData.data[0]);
             const series =[];
             keys.forEach((key)=>{
                 series.push({
                     name: key,
-                    data: xData.map((item)=>{}),
+                    data: xData.data.map((item)=>item[key]),
                     type: "line",
                 })
             });
-            orderData.xData = xData;
+            orderData.xData = xData.date;
             orderData.series = series;
-            xOptions.xAxis.data = xData;
-            xOptions.series = series;
+            xOptions.xAxis.data = orderData.xData;
+            xOptions.series = orderData.series;
             let hEcharts = echarts.init(proxy.$refs["echarts"])
             hEcharts.setOption(xOptions)
         }
