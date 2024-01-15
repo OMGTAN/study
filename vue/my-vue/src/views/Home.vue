@@ -32,14 +32,20 @@
                     </div>
                 </el-card>
             </div>
+            <el-card>
+                <div ref="echarts" style="height : 280px">
+
+                </div>
+            </el-card>
         </el-col>
         
     </el-row>
 </template>
 
 <script>
-import { defineComponent, getCurrentInstance, onMounted, ref } from 'vue'
+import { defineComponent, getCurrentInstance, onMounted, reactive, ref } from 'vue'
 import axios from 'axios'
+import * as echarts from 'echarts'
 
 export default defineComponent({
     setup() {
@@ -69,9 +75,100 @@ export default defineComponent({
             countData.value = res.countData
         };
 
+        const xData = [
+            {苹果: 3995, 小米: 3541, 华为: 2409, oppo: 1110, vivo: 3894, 一加: 1212},
+            {苹果: 4995, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
+        ]
+
+        let xOptions = reactive({
+            textStyle:{
+                color: "#333"
+            },
+            grid:{
+                left: "20%"
+            },
+            tooltip:{
+                trigger: "axis"
+            },
+            xAxis: {
+                type:"category",
+                data: ["aaa"],
+                axisLine:{
+                    lineStyle:{
+                        color: "#17b3a3"
+                    }
+                },
+                axisLabel:{
+                    interval: 0,
+                    color: "#333",
+                },
+            },
+            yAxis: [
+                {
+                    type: "value",
+                    axisLine:{
+                        lineStyle:{
+                            color: "#17b3a3"
+                        }
+                    },
+                }
+            ],
+            color: ["#2ec7e9", "#b6a2de", "#5ab1ef", "#ffb980", "#d87a80", "#8d98b3", ],
+            series: [
+                {
+                data: [10, 22, 28, 43, 49],
+                type: 'line',
+                stack: 'x'
+                },
+                {
+                data: [5, 4, 3, 5, 10],
+                type: 'line',
+                stack: 'x'
+                }
+            ]
+        })
+        let pieOptions = reactive({
+            tooltip:{
+                trigger:"item",
+            },
+            color:[
+                "#0f78f4",
+                "#dd536b",
+                "#9462e5",
+                "#a6a6a6",
+                "#e1bb22",
+                "#39c362",
+                "#3ed1cf",
+            ]
+
+        })
+        let orderData = reactive({
+            xData:[],
+            series:[]
+        })
+
+        const getChatData = ()=>{
+            const keys = Object.keys(xData[0]);
+            const series =[];
+            keys.forEach((key)=>{
+                series.push({
+                    name: key,
+                    data: xData.map((item)=>{}),
+                    type: "line",
+                })
+            });
+            orderData.xData = xData;
+            orderData.series = series;
+            xOptions.xAxis.data = xData;
+            xOptions.series = series;
+            let hEcharts = echarts.init(proxy.$refs["echarts"])
+            hEcharts.setOption(xOptions)
+        }
+
         onMounted(()=>{
             getTableData();
             getCountData();
+            getChatData();
         })
         return{
             tableLable,
