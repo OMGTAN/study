@@ -31,12 +31,21 @@
                         <p class="txt">{{ item.name }}</p>
                     </div>
                 </el-card>
+                
             </div>
             <el-card>
                 <div ref="echarts" style="height : 280px">
-
                 </div>
+                
             </el-card>
+            <div class="graph">
+                    <el-card style="height: 260px">
+                        <div ref="userecharts" style="height: 240px"></div>
+                    </el-card>
+                    <el-card style="height: 260px">
+                        <div ref="videoecharts" style="height: 240px"></div>
+                    </el-card>
+                </div>
         </el-col>
         
     </el-row>
@@ -88,6 +97,59 @@ export default defineComponent({
                 {苹果: 4095, 小米: 4541, 华为: 3409, oppo: 2110, vivo: 4894, 一加: 2212 },
             ]
         }
+        const uData = [
+            {
+                date:"周一",
+                new: 5,
+                active: 200
+            },
+            {
+                date:"周二",
+                new: 10,
+                active: 500
+            },
+            {
+                date:"周三",
+                new: 12,
+                active: 550
+            },
+            {
+                date:"周四",
+                new: 60,
+                active: 800
+            },
+            {
+                date:"周五",
+                new: 65,
+                active: 550
+            },
+        ]
+        const vData = [
+            {
+                name: "小米",
+                value: 2999
+            },
+            {
+                name: "苹果",
+                value: 5999
+            },
+            {
+                name: "vivo",
+                value: 2999
+            },
+            {
+                name: "oppo",
+                value: 2999
+            },
+            {
+                name: "魅族",
+                value: 2999
+            },
+            {
+                name: "三星",
+                value: 2999
+            },
+        ] 
 
         let xOptions = reactive({
             textStyle:{
@@ -144,6 +206,13 @@ export default defineComponent({
             xData:[],
             series:[]
         })
+        let userData = reactive({
+            xData:[],
+            series:[]
+        })
+        let videoData = reactive({
+            series:[]
+        })
 
         const getChatData = ()=>{
             const keys = Object.keys(xData.data[0]);
@@ -161,6 +230,36 @@ export default defineComponent({
             xOptions.series = orderData.series;
             let hEcharts = echarts.init(proxy.$refs["echarts"])
             hEcharts.setOption(xOptions)
+
+            //柱状图
+            userData.xData = uData.map((item)=> item.date)
+            userData.series = [
+                {
+                    name: "新增用户",
+                    data: uData.map((item)=> item.new),
+                    type: "bar",
+                },
+                {
+                    name: "活跃用户",
+                    data: uData.map((item)=> item.active),
+                    type: "bar",
+                },
+            ];
+            xOptions.xAxis.data = userData.xData;
+            xOptions.series = userData.series;
+            let uEcharts = echarts.init(proxy.$refs["userecharts"])
+            uEcharts.setOption(xOptions)
+
+            //饼状图
+            videoData.series=[
+                {
+                    data: vData,
+                    type: "pie"
+                }
+            ]
+            pieOptions.series = videoData.series
+            let vEcharts = echarts.init(proxy.$refs["videoecharts"])
+            vEcharts.setOption(pieOptions)
         }
 
         onMounted(()=>{
@@ -240,6 +339,13 @@ export default defineComponent({
                 text-align: center;
                 color: #999;
             }
+        }
+    }
+    .graph{
+        display: flex;
+        justify-content: space-between;
+        .el-card{
+            width: 48%;
         }
     }
 </style>
