@@ -6,7 +6,10 @@
                     <Menu />
                 </el-icon>
             </el-button>
-            <h3>首页</h3>
+            <el-breadcrumb separator="/" class="bread">
+                <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                <el-breadcrumb-item :to="currentMenu.path" v-if="currentMenu">{{ currentMenu.label }}</el-breadcrumb-item                >
+            </el-breadcrumb>
         </div>
         <div class="r-content">
             <el-dropdown>
@@ -26,7 +29,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import {useStore} from 'vuex'
 
 export default defineComponent({
@@ -36,8 +39,12 @@ export default defineComponent({
             store.commit("updateIsCollapse")
         }
 
+        const currentMenu = computed(()=>{
+            return store.state.currentMenu
+        });
         return {
-            handleIsCollapse
+            handleIsCollapse,
+            currentMenu
         }
     },
 })
@@ -71,6 +78,9 @@ export default defineComponent({
             color: #fff;
         }
 
+        .bread /deep/ span{
+            color: #fff !important;
+        }
     }
 
 </style>

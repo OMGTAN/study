@@ -29,6 +29,7 @@
 
 <script>
     import {useRouter}  from 'vue-router';
+import { useStore } from 'vuex';
 
     export default{
         setup(){
@@ -75,7 +76,8 @@
                 ],
                 },
             ]
-        
+            
+            const store = useStore();
             const router = useRouter();
 
             const noChildren= ()=>{
@@ -87,6 +89,7 @@
 
             const clickMenu = (item)=>{
                 router.push(item.name)
+                store.commit('selectMenu', item);
             }
 
             return {
