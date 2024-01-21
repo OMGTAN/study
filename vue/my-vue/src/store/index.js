@@ -29,5 +29,11 @@ export default createStore({
                 res == -1 ? state.tabList.push(val): ''
             }
         },
-    }
+
+        closeTab(state, tag){
+            let res = state.tabList.findIndex(item=>item.name === tag.name)
+            state.tabList.splice(res, 1)
+        },
+    },
+    
 })

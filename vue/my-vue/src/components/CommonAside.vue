@@ -88,7 +88,7 @@ import { useStore } from 'vuex';
             }
 
             const clickMenu = (item)=>{
-                router.push(item.name)
+                router.push({name: item.name})
                 store.commit('selectMenu', item);
             }
 
