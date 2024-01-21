@@ -33,7 +33,7 @@
                 </el-card>
                 
             </div>
-            <el-card>
+            <el-card style="margin-top: 20px;">
                 <div ref="echarts" style="height : 280px">
                 </div>
                 
@@ -286,6 +286,7 @@ export default defineComponent({
             padding-bottom: 20px;
             border-bottom: 1px solid #ccc;
             margin-bottom: 20px;
+            margin-top: 0px;
             img{
                 height: 150px;
                 width: 150px;
@@ -305,9 +306,9 @@ export default defineComponent({
         }
     }
 
-    .el-card{
-        margin-top: 20px;
-    }
+    // .el-card{
+    //     // margin-top: 20px;
+    // }
 
     .num{
         display: flex;
@@ -342,6 +343,7 @@ export default defineComponent({
         }
     }
     .graph{
+        margin-top: 20px;
         display: flex;
         justify-content: space-between;
         .el-card{
