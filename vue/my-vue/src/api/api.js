@@ -19,4 +19,13 @@ export default {
             mock: true
         })
     },
+
+    getUserData(params){
+        return request({
+            url:'/user/getUserData',
+            method: 'get',
+            data: params,
+            mock: true
+        })
+    },
 }
