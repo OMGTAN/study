@@ -11,6 +11,14 @@
             </template>
             </el-table-column>
         </el-table>
+        <el-pagination
+            small
+            background
+            layout="prev, pager, next"
+            :total="config.total"
+            @current-change = "changePage"
+            class="mt-4"
+        />
     </div>
 </template>
 
@@ -46,23 +54,37 @@ export default  defineComponent({
         ])
 
         let list = ref([])
-        onMounted(()=>{
-            getUserData();
+
+        const config = reactive({
+            total: 0,
+            page: 1,
         })
 
-        const getUserData = async ()=>{
-            let res = await proxy.$api.getUserData();
-            console.log(res)
+        onMounted(()=>{
+            getUserData(config);
+        })
+
+        const changePage = (page)=>{
+            config.page = page;
+            getUserData(config)
+        }
+
+        const getUserData = async (config)=>{
+            // let res = await proxy.$api.getUserData();
+            let res = await proxy.$api.getUserData(config); // 会报网络错误
+            config.total = res.count;
             // list.value =res.list
             list.value =res.list.map((item)=>{
-                item.sexLabel = item.sex === 1 ? '男' : '女'
-                return item
-            })
+                item.sexLabel = item.sex === 1 ? '男' : '女';
+                return item;
+            });
         }
 
         return {
             list,
             tableLabel,
+            config,
+            changePage,
         }
     }
 })

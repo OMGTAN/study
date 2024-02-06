@@ -78,7 +78,11 @@ export default defineComponent({
             color: #fff;
         }
 
-        .bread /deep/ span{
+        //.bread /deep/ span{
+        //    color: #fff !important;
+        //}
+
+        :deep(.bread span){
             color: #fff !important;
         }
     }
