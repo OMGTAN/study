@@ -20,9 +20,9 @@ export default {
         })
     },
 
-    getUserData(params){
+    getUserList(params){
         return request({
-            url:'/user/getUserData',
+            url:'/user/getUserList',
             method: 'get',
             data: params,
             mock: true

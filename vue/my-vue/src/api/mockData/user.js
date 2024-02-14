@@ -34,7 +34,7 @@ for (let i = 0; i < count; i++) {
 }
 
 export default{
-    getUserData: config =>{
+    getUserList: config =>{
         const {name, page = 1, limit = 20} = param2Obj(config.url)
 
         const mockList = List.filter(user=>{
