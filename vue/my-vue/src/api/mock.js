@@ -5,4 +5,8 @@ import userApi from './mockData/user'
 
 Mock.mock('/home/getTableData', homeApi.getHomeData)
 Mock.mock('/home/getCountData', homeApi.getCountData)
-Mock.mock("/user/getUserList", 'get', userApi.getUserList)
+
+
+
+Mock.mock("/user/getUser", 'get', userApi.getUserList)
+Mock.mock("/user/add", 'post', userApi.createUser)

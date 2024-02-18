@@ -65,7 +65,7 @@
             <template #footer>
             <div class="dialog-footer">
                 <el-button @click="dialogVisible = false">取消</el-button>
-                <el-button type="primary" @click="dialogVisible = false">
+                <el-button type="primary" @click="onSubmit">
                     确认
                 </el-button>
             </div>
@@ -98,6 +98,7 @@
 
 <script>
 import { defineComponent, getCurrentInstance, onMounted, reactive, ref } from 'vue';
+import { ElMessageBox } from 'element-plus'
 export default  defineComponent({
     setup(){
         const {proxy} = getCurrentInstance();
@@ -146,33 +147,33 @@ export default  defineComponent({
         const changePage = (page)=>{
             config.page = page;
             getUserData(config)
-        }
+        };
 
         const getUserData = async (config)=>{
-            let res = await proxy.$api.getUserList();
-            // let res = await proxy.$api.getUserList(config); // 会报网络错误
+            let res = await proxy.$api.getUserData();
+            // let res = await proxy.$api.getUserData(config); // 会报网络错误
             config.total = res.count;
             // list.value =res.list
-            list.value =res.list.map((item)=>{
+            list.value = res.list.map((item)=>{
                 item.sexLabel = item.sex === 1 ? '男' : '女';
                 return item;
             });
-        }
+        };
 
         const handleSearch = ()=>{
             config.name = formInline.keyword;
             getUserData(config);
-        }
+        };
 
-        const dialogVisible = ref(false)
+        const dialogVisible = ref(false);
 
         const handleClose = (done) => {
-        ElMessageBox.confirm('Are you sure to close this dialog?')
+        ElMessageBox.confirm('确定关闭吗?')
             .then(() => {
-            done()
+                done()
             })
             .catch(() => {
-            // catch error
+                // catch error
             })
         }
 
@@ -184,6 +185,13 @@ export default  defineComponent({
             addr:'',
         })
 
+        const onSubmit = async ()=>{
+            let res = await proxy.$api.addUser(formUser)
+            console.log(res)
+
+            getUserData(config)
+        }
+
         return {
             list,
             tableLabel,
@@ -194,6 +202,7 @@ export default  defineComponent({
             handleClose,
             dialogVisible,
             formUser,
+            onSubmit,
         }
     }
 })

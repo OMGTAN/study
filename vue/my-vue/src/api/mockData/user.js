@@ -34,6 +34,7 @@ for (let i = 0; i < count; i++) {
 }
 
 export default{
+
     getUserList: config =>{
         const {name, page = 1, limit = 20} = param2Obj(config.url)
 
@@ -49,6 +50,25 @@ export default{
             data:{
                 list: pageList,
                 count: mockList.length
+            }
+        }
+    },
+
+    createUser: config =>{
+        const {name, addr, age, birth, sex} = JSON.parse(config.body)
+        console.log(JSON.parse(config.body))
+        List.unshift({
+            id: Mock.Random.guid(),
+            name: name,
+            addr: addr,
+            age: age,
+            birth: birth,
+            sex: sex,
+        })
+        return {
+            code: 200,
+            data:{
+                message: '添加成功'
             }
         }
     }

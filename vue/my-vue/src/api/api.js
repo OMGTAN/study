@@ -20,12 +20,22 @@ export default {
         })
     },
 
-    getUserList(params){
+    getUserData(params){
         return request({
-            url:'/user/getUserList',
+            url:'/user/getUser',
             method: 'get',
             data: params,
             mock: true
         })
     },
+
+    addUser(params){
+        return request({
+            url:'/user/add',
+            method: 'post',
+            data: params,
+            mock: true
+        })
+    },
+
 }
