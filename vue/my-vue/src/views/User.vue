@@ -16,22 +16,22 @@
             width="35%"
             :before-close="handleClose"
         >
-        <el-form :inline="true" :model="formUser" >
+        <el-form :inline="true" :model="formUser"  ref="userForm">
             <el-row>
                 <el-col :span="12">
-                    <el-form-item label="姓名">
+                    <el-form-item label="姓名" prop="name">
                         <el-input v-model="formUser.name" placeholder="请输入姓名" />
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item label="年龄">
+                    <el-form-item label="年龄" prop="age">
                         <el-input v-model="formUser.age" placeholder="请输入年龄" />
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col :span="12">
-                    <el-form-item label="性别">
+                    <el-form-item label="性别" prop="sex">
                         <el-select
                         v-model="formUser.sex"
                         placeholder="请选择性别"
@@ -43,19 +43,20 @@
                 </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item label="出生日期">
+                    <el-form-item label="出生日期" prop="birth">
                         <el-date-picker
                             v-model="formUser.birth"
                             type="date"
                             placeholder="Pick a date"
                             style="width: 100%"
+                            value-format="YYYY-MM-DD"
                             />
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col :span="12">
-                    <el-form-item label="地址">
+                    <el-form-item label="地址" prop="addr">
                         <el-input v-model="formUser.addr" placeholder="请输入地址" />
                     </el-form-item>
                 </el-col>
@@ -188,7 +189,7 @@ export default  defineComponent({
         const onSubmit = async ()=>{
             let res = await proxy.$api.addUser(formUser)
             console.log(res)
-
+            proxy.$refs.userForm.resetFields()
             getUserData(config)
         }
 
