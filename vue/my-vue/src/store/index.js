@@ -39,7 +39,15 @@ export default createStore({
         setMenu(state, val){
             state.menu = val
             localStorage.setItem('menu', JSON.stringify(val))
-        }
+        },
+
+        addMenu(state, val){
+            if(!localStorage.getItem('menu')){
+                return
+            }
+            const menu = JSON.parse(localStorage.getItem('menu'))
+            state.menu = menu
+        },
     },
     
 })
