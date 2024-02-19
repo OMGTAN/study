@@ -6,7 +6,7 @@ export default {
             data: {
                 tableData: [
                     {
-                        name : "name1",
+                        name : "name11",
                         todayBuy : "todayB",
                         monthBuy : "monthB",
                         totalBuy : "totalB"

@@ -29,10 +29,12 @@ function request(options){
     let isMock = options.mock || config.mock
 
     if(config.env = 'prod'){
-        service.defaults.baseURL = config.baseApi
+        // service.defaults.baseURL = config.baseApi
+        service.defaults.baseURL = isMock ? config.mockApi : config.baseApi
     }else{
         service.defaults.baseURL = isMock ? config.mockApi : config.baseApi
     }
+    service.defaults.baseURL = service.defaults.baseURL? service.defaults.baseURL: 'http://localhost:5173'
 
     return service(options)
 }

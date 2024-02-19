@@ -22,7 +22,7 @@ export default {
 
     getUserData(params){
         return request({
-            url:'/home/getUser',
+            url:'/user/getUser',
             method: 'get',
             data: params,
             mock: true
@@ -42,6 +42,15 @@ export default {
         return request({
             url:'/user/edit',
             method: 'post',
+            data: params,
+            mock: true
+        })
+    },
+
+    deleteUser(params){
+        return request({
+            url:'/user/delete',
+            method: 'get',
             data: params,
             mock: true
         })

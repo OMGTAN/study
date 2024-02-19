@@ -100,7 +100,7 @@
             <el-table-column fixed="right" label="操作" min-width="180">
             <template #default="scoped">
                 <el-button size="small"  @click="handleEdit(scoped.row)" >编辑</el-button>
-                <el-button type="danger" size="small" @click="handleDelete">删除</el-button>
+                <el-button type="danger" size="small" @click="handleDelete(scoped.row)">删除</el-button>
             </template>
             </el-table-column>
         </el-table>
@@ -117,7 +117,7 @@
 
 <script>
 import { defineComponent, getCurrentInstance, onMounted, reactive, ref } from 'vue';
-import { ElMessageBox } from 'element-plus'
+import { ElMessageBox, ElMessage } from 'element-plus'
 export default  defineComponent({
     setup(){
         const {proxy} = getCurrentInstance();
@@ -169,8 +169,8 @@ export default  defineComponent({
         };
 
         const getUserData = async (config)=>{
-            let res = await proxy.$api.getUserData();
-            // let res = await proxy.$api.getUserData(config); // 会报网络错误
+            // let res = await proxy.$api.getUserData();
+            let res = await proxy.$api.getUserData(config); // 会报网络错误
             config.total = res.count;
             // list.value =res.list
             list.value = res.list.map((item)=>{
@@ -245,13 +245,17 @@ export default  defineComponent({
         }
 
         const handleDelete = (row)=>{
-            action.value = 'edit'
-            dialogVisible.value = true
-            row.sex = row.sex == 1 ? '男' : '女'
-            proxy.$nextTick(()=>{
-                Object.assign(formUser, row)
+            ElMessageBox.confirm('是否确认删除?')
+            .then(async () => {
+                await proxy.$api.deleteUser(row)
+                getUserData(config)
             })
-
+//             .catch(() => {
+//                 ElMessage({
+//                     message: '删除失败',
+//                     type: 'error',
+//   })
+//             })
         }
 
         return {

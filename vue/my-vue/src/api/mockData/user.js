@@ -35,11 +35,11 @@ for (let i = 0; i < count; i++) {
 
 export default{
 
-    getUserList: config =>{
+    getUserList: (config) =>{
         const {name, page = 1, limit = 20} = param2Obj(config.url)
 
         const mockList = List.filter(user=>{
-            if(name && user.name.indexOf(name) === -1 && user.addr.indexOf(name) === -1) return true
+            if(name && user.name.indexOf(name) === -1 && user.addr.indexOf(name) === -1) return false
                 return true
         })
 
@@ -90,6 +90,24 @@ export default{
             code: 200,
             data:{
                 message: '添加成功'
+            }
+        }
+    },
+
+    deleteUser: config =>{
+        const {id} = param2Obj(config.url)
+        if(!id){
+            return {
+                code: -999,
+                message: '参数不正确'
+            }
+        }else{
+            List = List.filter(u=>u.id!==id)
+        }
+        return {
+            code: 200,
+            data:{
+                message: '删除成功'
             }
         }
     },
