@@ -11,7 +11,8 @@ export default createStore({
                 label: "首页",
                 icon: "s-home",
             }
-        ]
+        ],
+        menu:[],
     },
     mutations:{
         updateIsCollapse(state, payload){
@@ -34,6 +35,11 @@ export default createStore({
             let res = state.tabList.findIndex(item=>item.name === tag.name)
             state.tabList.splice(res, 1)
         },
+
+        setMenu(state, val){
+            state.menu = val
+            localStorage.setItem('menu', JSON.stringify(val))
+        }
     },
     
 })

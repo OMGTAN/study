@@ -16,6 +16,8 @@
 
 <script>
 import { getCurrentInstance, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
     export default{
         setup(){
@@ -25,10 +27,16 @@ import { getCurrentInstance, reactive } from 'vue';
             })
 
             const {proxy} = getCurrentInstance()
+
+            const store = useStore()
+            const router = useRouter()
             const login = async ()=>{
                 const res = await proxy.$api.getMenu(loginForm)
                 console.log(res)
-                return res.data
+                store.commit('setMenu', res.menu)
+                router.push({
+                    name: 'home',
+                })
             }
 
             return {

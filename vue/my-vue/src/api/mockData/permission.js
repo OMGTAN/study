@@ -12,7 +12,7 @@ export default {
                         path: "/",
                         name: "home",
                         label: "首页",
-                        icon: "s-home",
+                        icon: "house",
                         url: "Home/Home",
                         },
                         {
@@ -63,7 +63,7 @@ export default {
                         path: "/",
                         name: "home",
                         label: "首页",
-                        icon: "s-home",
+                        icon: "house",
                         url: "Home/Home",
                         },
                         {
