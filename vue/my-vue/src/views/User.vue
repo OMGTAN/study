@@ -88,9 +88,7 @@
         <template #footer>
         <div class="dialog-footer">
             <el-button @click="handleCancel">取消</el-button>
-            <el-button type="primary" @click="onSubmit()">
-                确认
-            </el-button>
+            <el-button type="primary" @click="onSubmit()">确认</el-button>
         </div>
         </template>
     </el-dialog>
@@ -209,10 +207,16 @@ export default  defineComponent({
         const onSubmit =  ()=>{
 
             if (!proxy.$refs.userForm) return
+
             proxy.$refs.userForm.validate(async (valid) => {
                     if (valid) {
-                        let res = await proxy.$api.addUser(formUser)
-                        console.log(res)
+                        let res
+                        if(action == 'add'){
+                            res = await proxy.$api.addUser(formUser)
+                        }else{
+                            res = await proxy.$api.editUser(formUser)
+                        }
+                        dialogVisible.value = false
                         proxy.$refs.userForm.resetFields()
                         getUserData(config)
                     } else {
@@ -240,6 +244,16 @@ export default  defineComponent({
 
         }
 
+        const handleDelete = (row)=>{
+            action.value = 'edit'
+            dialogVisible.value = true
+            row.sex = row.sex == 1 ? '男' : '女'
+            proxy.$nextTick(()=>{
+                Object.assign(formUser, row)
+            })
+
+        }
+
         return {
             list,
             tableLabel,
@@ -254,6 +268,7 @@ export default  defineComponent({
             handleCancel,
             action,
             handleEdit,
+            handleDelete,
         }
     }
 })
