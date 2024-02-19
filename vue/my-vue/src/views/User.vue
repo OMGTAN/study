@@ -19,13 +19,34 @@
         <el-form :inline="true" :model="formUser"  ref="userForm">
             <el-row>
                 <el-col :span="12">
-                    <el-form-item label="姓名" prop="name">
+                    <el-form-item label="姓名" prop="name"
+                    :rules="[
+                        {
+                        required: true,
+                        message: '请输入姓名',
+                        trigger: 'blur',
+                        },
+                    ]"
+                    >
                         <el-input v-model="formUser.name" placeholder="请输入姓名" />
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                    <el-form-item label="年龄" prop="age">
-                        <el-input v-model="formUser.age" placeholder="请输入年龄" />
+                    <el-form-item label="年龄" prop="age"
+                        :rules="[
+                            {
+                            required: true,
+                            message: '请输入年龄',
+                            trigger: 'blur',
+                            },
+                            {
+                            type: 'number',
+                            message: '请输入数字',
+                            trigger: ['blur', 'change'],
+                            },
+                        ]"
+                    >
+                        <el-input v-model.number="formUser.age" placeholder="请输入年龄" />
                     </el-form-item>
                 </el-col>
             </el-row>
@@ -36,6 +57,7 @@
                         v-model="formUser.sex"
                         placeholder="请选择性别"
                         clearable
+                        
                         >
                         <el-option label="男" value="1" />
                         <el-option label="女" value="0" />
@@ -65,8 +87,8 @@
         </el-form>
             <template #footer>
             <div class="dialog-footer">
-                <el-button @click="dialogVisible = false">取消</el-button>
-                <el-button type="primary" @click="onSubmit">
+                <el-button @click="handleCancel">取消</el-button>
+                <el-button type="primary" @click="onSubmit()">
                     确认
                 </el-button>
             </div>
@@ -186,11 +208,26 @@ export default  defineComponent({
             addr:'',
         })
 
-        const onSubmit = async ()=>{
-            let res = await proxy.$api.addUser(formUser)
-            console.log(res)
+        const onSubmit =  ()=>{
+
+            if (!proxy.$refs.userForm) return
+            proxy.$refs.userForm.validate(async (valid) => {
+                    if (valid) {
+                        let res = await proxy.$api.addUser(formUser)
+                        console.log(res)
+                        proxy.$refs.userForm.resetFields()
+                        getUserData(config)
+                    } else {
+                        console.log('error submit!')
+                        return false
+                    }
+                })
+            
+        }
+
+        const handleCancel = ()=>{
+            dialogVisible.value = false
             proxy.$refs.userForm.resetFields()
-            getUserData(config)
         }
 
         return {
@@ -204,6 +241,7 @@ export default  defineComponent({
             dialogVisible,
             formUser,
             onSubmit,
+            handleCancel,
         }
     }
 })
