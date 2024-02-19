@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../config' 
 import { ElMessage, ElSubMenu } from 'element-plus'
-const NETWORK_ERR = '网络异常，请重试'
+const NETWORK_ERR = '网络异常...，请重试'
 
 const service = axios.create({
     baseURL: config.baseApi

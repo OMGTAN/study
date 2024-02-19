@@ -8,5 +8,5 @@ Mock.mock('/home/getCountData', homeApi.getCountData)
 
 
 
-Mock.mock("/user/getUser", 'get', userApi.getUserList)
+Mock.mock("/home/getUser", 'get', userApi.getUserList)
 Mock.mock("/user/add", 'post', userApi.createUser)
