@@ -48,6 +48,11 @@ export default createStore({
             const menu = JSON.parse(localStorage.getItem('menu'))
             state.menu = menu
         },
+
+        cleanMenu(state, val){
+            state.menu = []
+            localStorage.removeItem('menu')
+        },
     },
     
 })

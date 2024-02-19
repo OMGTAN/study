@@ -19,7 +19,7 @@
                 <template #dropdown>
                 <el-dropdown-menu>
                     <el-dropdown-item>个人中心</el-dropdown-item>
-                    <el-dropdown-item>退出</el-dropdown-item>
+                    <el-dropdown-item @click="handleLogintOut">退出</el-dropdown-item>
                 </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -30,11 +30,15 @@
 
 <script>
 import { computed, defineComponent } from 'vue'
+import { useRouter } from 'vue-router';
 import {useStore} from 'vuex'
 
 export default defineComponent({
     setup() {
         let store = useStore();
+
+        const router = useRouter();
+
         let handleIsCollapse = ()=>{
             store.commit("updateIsCollapse")
         }
@@ -42,9 +46,15 @@ export default defineComponent({
         const currentMenu = computed(()=>{
             return store.state.currentMenu
         });
+
+        const handleLogintOut = ()=>{
+            store.commit('cleanMenu')
+            router.push('login')
+        }
         return {
             handleIsCollapse,
-            currentMenu
+            currentMenu,
+            handleLogintOut,
         }
     },
 })
